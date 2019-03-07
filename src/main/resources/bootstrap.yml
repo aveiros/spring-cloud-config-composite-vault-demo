@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    config:
+      server:
+          native:
+            searchLocations: file:///C:/vault/config
+          vault:
+            host: localhost
+            port: 8200
+          bootstrap: true
+  profiles:
+    active: native,vault
