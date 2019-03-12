@@ -1,12 +1,18 @@
 spring:
+  appplication:
+    name: spring-cloud-config-server
+  profiles:
+    active: native,vault
   cloud:
     config:
       server:
-          native:
-            searchLocations: file:///C:/vault/config
-          vault:
-            host: localhost
-            port: 8200
-          bootstrap: true
-  profiles:
-    active: native,vault
+        bootstrap: true
+        vault:
+          host: localhost
+          port: 8200
+          backend: myapp
+          defaultKey: myapp
+        native:
+          searchLocations: file://${HOME}/code/test
+        #git:
+        #  uri: file://${HOME}/code/test
